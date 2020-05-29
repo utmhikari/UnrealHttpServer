@@ -1,0 +1,28 @@
+{
+	"FileVersion": 3,
+	"Version": 1,
+	"VersionName": "1.0",
+	"FriendlyName": "UnrealHttpServer",
+	"Description": "A UE4 plugin with an HTTP Web Server",
+	"Category": "Test",
+	"CreatedBy": "utmhikari",
+	"CreatedByURL": "http://utmhikari.top/",
+	"DocsURL": "",
+	"MarketplaceURL": "",
+	"SupportURL": "",
+	"CanContainContent": true,
+	"IsBetaVersion": true,
+	"IsExperimentalVersion": false,
+	"Installed": false,
+	"Modules": [
+		{
+			"Name": "UnrealHttpServer",
+			"Type": "Runtime",
+			"LoadingPhase": "PostEngineInit",
+			"WhitelistPlatforms": [
+				"Android",
+				"Win64"
+			]
+		}
+	]
+}

@@ -195,16 +195,18 @@ namespace UnrealHttpServer
 		bool bIsUTF8JsonContent = false;
 		for (auto& HeaderElem : Request.Headers)
 		{
-			if (HeaderElem.Key == TEXT("Content-type"))
+			auto LowerKey = HeaderElem.Key.ToLower();
+			if (LowerKey == TEXT("content-type"))
 			{
 				for (auto& Value : HeaderElem.Value)
 				{
 					auto LowerValue = Value.ToLower();
-					if (LowerValue.StartsWith(TEXT("charset=")) && LowerValue != TEXT("charset=utf-8"))
+					// not strict check
+					if (LowerValue.Contains(TEXT("charset=")) && !LowerValue.Contains(TEXT("charset=utf-8")))
 					{
 						return false;
 					}
-					if (LowerValue == TEXT("application/json") || LowerValue == TEXT("text/json"))
+					if (LowerValue.Contains(TEXT("application/json")) || LowerValue.Contains(TEXT("text/json")))
 					{
 						bIsUTF8JsonContent = true;
 					}
